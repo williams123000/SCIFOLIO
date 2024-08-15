@@ -1,0 +1,227 @@
+.Home{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+.SideBar{
+    width: 19%;
+    height: 100%;
+    background-color: #1E1E1E;
+    border-radius: 20px;
+}
+
+.SideBar .ImageProfile{
+    width: 50%;
+}
+
+.SideBar .TagProfession{
+    background-color: #292929;
+    border-radius: 8px;
+    font-size:x-small;
+}
+
+.SideBar .TagsInformation{
+    font-size: smaller;
+}
+
+.SideBar .TagsInformation .IconInformation{
+      
+    aspect-ratio: 1/1;
+    padding: 10px;
+    color: white;
+    border-radius: 10px;
+    background-color: #292929;
+}
+
+.Portfolio {
+    width: 79%;
+    height: 100%;
+    background-color: #1E1E1E;
+    border-radius: 20px;
+    position: relative;
+}
+
+.Portfolio .Menu-Portfolio{
+    background-color: #292929 ;
+    position: absolute;
+    top: 0;
+    right: 0;
+    border-radius: 0px 20px 0px 20px;
+}
+
+.ContentPortfolio{
+    gap: 20px 0px;
+    height: -webkit-fill-available;
+    position: absolute;
+    overflow-y: scroll;
+}
+
+.ItemContentPortfolio{
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+.ItemContentPortfolio img{
+    width: 100%;
+    border-radius: 20px;
+    aspect-ratio: 16/12;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.ItemContentPortfolio p{
+    font-size: smaller;
+}
+
+.AboutHobbies{
+    background-color: #292929;
+    border-radius: 20px;
+    width: 48%;
+}
+
+.IconHobbies{
+    color: #D4BA70;
+}
+
+.Testimonies{
+    background-color: #292929;
+    border-radius: 20px;
+    width: 100%;
+}
+
+.ImageTestimonies{
+    width: 100px;
+}
+
+
+
+
+
+
+.timelines {
+    display: flex;
+    
+  }
+  
+  .timeline-title {
+    font-size: 1em;
+    font-weight: bold;
+  }
+  
+  .timeline-item {
+    margin-bottom: 2em;
+  }
+  .timeline-item h3 {
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin: 0;
+    position: relative;
+  }
+  .timeline-item h3::before {
+    content: "";
+    position: absolute;
+    left: -2.35em;
+    background-color: #D4BA70;
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+    transform: translate(-0.5px, 0.2em);
+  }
+  
+  .timeline-items {
+    margin: 2em;
+    padding: 0.01em 0 3em 2em;
+    border-left: 1px solid #D4BA70;
+  }
+  
+  .timeline-item {
+    margin-top: -0.3em;
+  }
+  .timeline-item time {
+    display: block;
+    float: left;
+    
+    padding: 0.2em 0.4em;
+  }
+  .timeline-item > * {
+    margin: 0.5em 0;
+  }
+  .timeline-item .location {
+    clear: both;
+    font-size: 0.85em;
+    font-style: italic;
+  }
+
+
+
+
+
+
+
+  .skills{
+    background-color: #292929;
+    border-radius: 20px;
+  }
+
+
+
+
+
+
+
+  .Map{
+    overflow: hidden;
+    position: relative;
+    height: 500px;
+}
+  
+.leaflet-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+  
+    z-index: 0;
+  }
+  
+  .leaflet-layer,
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-attribution {
+  filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+
+.form-floating>.form-control-plaintext~label, .form-floating>.form-control:focus~label, .form-floating>.form-control:not(:placeholder-shown)~label, .form-floating>.form-select~label {
+    color: white !important;
+    
+}
+
+.form-floating>label {
+    color: white !important;
+    left: 10px !important;
+}
+
+.form-control{
+    background-color: transparent !important;
+}
+
+.form-control:focus{
+    border-color: gray !important;
+    box-shadow: 0 0 0 .25rem rgba(189, 198, 211, 0.25) !important;
+}
+
+.form-floating>.form-control-plaintext~label::after, .form-floating>.form-control:focus~label::after, .form-floating>.form-control:not(:placeholder-shown)~label::after, .form-floating>.form-select~label::after{
+    color: white !important;
+    background-color: transparent !important;
+}
+
+
+
+.ContentBlog{
+    gap: 20px 0px;
+    height: -webkit-fill-available;
+    position: absolute;
+    overflow-y: scroll;
+}

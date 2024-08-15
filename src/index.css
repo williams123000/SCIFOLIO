@@ -1,0 +1,70 @@
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87) ;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Var Background App*/
+  --bs-body-bg: #111111 !important;
+  --bs-body-color: #ECECEC !important;
+  --bs-secondary-color: #5A5A5A !important;
+  
+}
+
+
+body{
+  width: 100vw;
+  height: 100vh;
+  overflow: overlay;
+}
+#root{
+  width: 100%;
+  height: 100%;
+}
+
+.App{
+  width: 100%;
+  height: 100%;
+}
+
+hr{
+  border-top: 3px solid #333333 !important;
+}
+
+.btn-dark{
+  --bs-btn-bg: transparent !important;
+  --bs-btn-border-color: transparent !important;
+  --bs-btn-hover-bg: transparent !important;
+  --bs-btn-hover-border-color: transparent !important;
+  --bs-btn-active-bg: transparent !important;
+  --bs-btn-active-border-color: transparent !important;
+}
+
+.Background_Yellow {
+  border-top: 3px solid #D4BA70 !important;
+  opacity: 1;
+}
+
+::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.progress-bar {
+  --bs-progress-bar-bg: #D4BA70 !important;
+}
