@@ -1,6 +1,6 @@
 import Button from 'react-bootstrap/Button';
-import { useState } from 'react';
-
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const DataTest = [
     {
@@ -156,8 +156,27 @@ const DataTest = [
 ]
 
 function ContentPortfolio() {
-    const [items, setItems] = useState(DataTest);
+    const [items, setItems] = useState({});
     const [category, setCategory] = useState('All');
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        async function getData() {
+            try {
+                const URL = import.meta.env.VITE_URL_API;
+                const URL_GET = import.meta.env.VITE_API_PORTFOLIO;
+                const URL_Petition = URL + URL_GET + '/' + 'richar@email.com';
+                const response = await axios.get( URL_Petition );
+                console.log(response.data);
+                setItems(response.data.Works.Works);
+                setLoading(false);
+            }
+            catch (error) {
+                console.log(error);
+            }
+        }
+        getData();
+    }, []);    
 
     const changeCategory = (newCategory) => {
         setCategory(newCategory);
@@ -168,15 +187,32 @@ function ContentPortfolio() {
         ? items 
         : items.filter(item => item.Category === category);
 
+    const getCategory = (category) => {
+        switch (category) {
+            case 'Investigation':
+                return 'Investigación';
+            case 'Publications':
+                return 'Publicaciones';
+            case 'Experiments':
+                return 'Experimentos';
+            default:
+                return 'Desconocido';
+        }
+    }
+
+    if (loading) {
+        return <h1>Cargando...</h1>
+    }
+
     return (
         <div className='h-100' style={{position: 'relative'}}>
             <h1>Portafolio</h1>
             <hr className="Background_Yellow" />
             <div className='mb-3'>
                 <Button variant="dark" onClick={() => changeCategory("All")} style={{color: category === "All" ? "#D4BA70" : "#ECECEC"}}>Todo</Button>
-                <Button variant="dark" onClick={() => changeCategory("Investigation")} style={{color: category === "Investigation" ? "#D4BA70" : "#ECECEC"}}>Investigation</Button>
-                <Button variant="dark" onClick={() => changeCategory("Publications")} style={{color: category === "Publications" ? "#D4BA70" : "#ECECEC"}}>Publications</Button>
-                <Button variant="dark" onClick={() => changeCategory("Experiments")} style={{color: category === "Experiments" ? "#D4BA70" : "#ECECEC"}}>Experiments</Button>
+                <Button variant="dark" onClick={() => changeCategory("Investigation")} style={{color: category === "Investigation" ? "#D4BA70" : "#ECECEC"}}>Investigaciones</Button>
+                <Button variant="dark" onClick={() => changeCategory("Publications")} style={{color: category === "Publications" ? "#D4BA70" : "#ECECEC"}}>Publicaciones</Button>
+                <Button variant="dark" onClick={() => changeCategory("Experiments")} style={{color: category === "Experiments" ? "#D4BA70" : "#ECECEC"}}>Experimentos</Button>
             </div>
 
             <div className='ContentPortfolio w-100 d-flex flex-wrap justify-content-around'>
@@ -184,7 +220,7 @@ function ContentPortfolio() {
                     <div className='ItemContentPortfolio' key={index}>
                         <img src={item.ImgProject} alt="" />
                         <h6 className='mb-0'>{item.NameProject}</h6>
-                        <p className='mb-0 text-muted'>{item.Category}</p>
+                        <p className='mb-0 text-muted'>{getCategory(item.Category)}</p>
                     </div>
                 ))}
             </div>

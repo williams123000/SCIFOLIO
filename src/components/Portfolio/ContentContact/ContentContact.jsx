@@ -1,15 +1,41 @@
 import { MapContainer, TileLayer, useMap, Marker, Popup } from 'react-leaflet'
 import "leaflet/dist/leaflet.css";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
+import axios from 'axios';
 
 function ContentContact() {
+  const [data, setData] = useState({});
+  const [loading, setLoading] = useState(true);
+
   const [validated, setValidated] = useState(false);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const URL = import.meta.env.VITE_URL_API;
+        const URL_GET = import.meta.env.VITE_API_CONTACT;
+        const URL_Petition = URL + URL_GET + '/' + 'richar@email.com';
+        const response = await axios.get(URL_Petition);
+        console.log(response.data);
+        setData(response.data);
+        setLoading(false);
+      }
+      catch (error) {
+        console.log(error);
+      }
+    }
+    getData();
+  }, [])
+
+  if (loading) {
+    return <h1>Cargando...</h1>
+  }
 
   const handleSubmit = (event) => {
     const form = event.currentTarget;
@@ -27,12 +53,12 @@ function ContentContact() {
       <h1>Contacto</h1>
       <hr className="Background_Yellow" />
       <div className='Map w-100 mb-5'>
-        <MapContainer center={[51.505, -0.09]} zoom={13} scrollWheelZoom={true}>
+        <MapContainer center={[data.InfoLocation.AxisX, data.InfoLocation.AxisY]} zoom={17} scrollWheelZoom={true}>
           <TileLayer
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          <Marker position={[51.505, -0.09]}>
+          <Marker position={[data.InfoLocation.AxisX, data.InfoLocation.AxisY]}>
 
           </Marker>
         </MapContainer>

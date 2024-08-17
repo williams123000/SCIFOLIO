@@ -4,6 +4,11 @@
     display: flex;
 }
 
+.Login{
+  background-color: #292929;
+  border-radius: 20px;
+}
+
 .SideBar{
     width: 19%;
     height: 100%;
