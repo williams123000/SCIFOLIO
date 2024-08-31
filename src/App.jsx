@@ -37,10 +37,7 @@ function App() {
   return (
     <>
       <div className='App user-select-none'>
-
         <AnimatedCursor
-
-
           color="255, 255, 255"
           innerSize={7}
           outerSize={35}

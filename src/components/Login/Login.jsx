@@ -1,6 +1,5 @@
 
 import { useState } from 'react';
-import axios from 'axios';
 import imgLogin from '../../assets/images/login.jpg';
 import ContentLogin from './ContentLogin';
 import ContentSignUp from './ContentSignUp';
@@ -45,6 +44,7 @@ function Login() {
 
 
   return (
+    
     <div className="Home p-5 d-flex justify-content-center">
       <div className="Login w-100 p-4 d-flex gap-5">
 

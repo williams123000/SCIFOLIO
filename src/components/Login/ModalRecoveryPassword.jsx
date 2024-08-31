@@ -45,9 +45,16 @@ function ModalRecoveryPassword({ show, onHide }) {
           } catch (error) {
             console.log(error);
             switch (error.response?.data?.error) {
-              case 'auth/user-not-found':
+              case 'auth/user-not-found': {
                 setError('Usuario no encontrado');
                 break;
+              }
+                
+              default:{
+                setError('Error desconocido, intente más tarde');
+                break
+              }
+                
               // Puedes agregar más casos aquí según sea necesario
             }
             throw error; // Si hay un error, lo lanzamos para que el toast lo capture

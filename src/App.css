@@ -250,6 +250,9 @@
   --bs-btn-hover-bg: #cba754 !important;
   --bs-btn-hover-border-color: #cba754 !important;
   --bs-btn-hover-color: #1E1E1E !important;
+  --bs-btn-active-bg: #f2ebd3 !important;
+  --bs-btn-active-border-color: #f2ebd3 !important;
+  --bs-btn-active-color: #1E1E1E !important;
 }
 
 .text-danger {
