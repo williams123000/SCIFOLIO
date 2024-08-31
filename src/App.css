@@ -251,3 +251,20 @@
   --bs-btn-hover-border-color: #cba754 !important;
   --bs-btn-hover-color: #1E1E1E !important;
 }
+
+.text-danger {
+  --bs-danger-rgb: 255, 0, 0 !important;
+
+}
+
+.modal-content {
+  background-color: #292929 !important;
+  color: white !important;
+}
+
+.xyz{
+  position: fixed;
+top: 50%;
+left: 50%;
+
+}

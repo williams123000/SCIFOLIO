@@ -12,9 +12,11 @@
   "dependencies": {
     "@fontsource-variable/archivo": "^5.0.20",
     "@fontsource/open-sauce-sans": "^5.0.11",
+    "alert": "^6.0.2",
     "axios": "^1.7.4",
     "bootstrap": "^5.3.3",
     "framer-motion": "^11.3.31",
+    "lottie-react": "^2.4.0",
     "react": "^18.3.1",
     "react-animated-cursor": "^2.11.2",
     "react-bootstrap": "^2.10.4",

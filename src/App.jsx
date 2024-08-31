@@ -37,17 +37,21 @@ function App() {
   return (
     <>
       <div className='App user-select-none'>
-      
-    <AnimatedCursor
-  color="255, 255, 255"
-  innerSize={7}
-  outerSize={35}
-  innerScale={1}
-  
-  outerScale={1.7}
-  outerAlpha={0.4}
-  
-/>
+
+        <AnimatedCursor
+
+
+          color="255, 255, 255"
+          innerSize={7}
+          outerSize={35}
+          innerScale={1}
+          innerStyle={{ zIndex: 9999 }}
+
+          outerScale={1.7}
+          outerAlpha={0.4}
+          outerStyle={{ zIndex: 9999 }}
+
+        />
         {logged ?
           <Home />
           :

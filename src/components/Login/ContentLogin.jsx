@@ -7,125 +7,132 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import { InputGroup } from 'react-bootstrap';
 import axios from 'axios';
 import { useState } from 'react';
+import Lottie from "lottie-react";
+import animationLoading from "../../assets/animations/loading.json";
+import { GoAlertFill } from "react-icons/go";
+import ModalRecoveryPassword from "./ModalRecoveryPassword";
 
-function ContentLogin( {setType}) {
-    const [inputType, setInputType] = useState('password');
-    const [validated, setValidated] = useState(false);
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
+function ContentLogin({ setType }) {
+  const [inputType, setInputType] = useState('password');
+  const [validated, setValidated] = useState(false);
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
-    const handleSubmit = async (event) => {
 
-        const form = event.currentTarget;
+  const [modalRecoverPassword, setModalRecoveryPassword] = useState(false);
 
-        if (form.checkValidity() === false) {
-            event.preventDefault();
-            event.stopPropagation();
-        } else {
-            event.preventDefault();
-            event.stopPropagation();
-            const formData = new FormData(form);
-            const formDataObject = Object.fromEntries(formData.entries());
-            console.log(formDataObject);
-            setLoading(true);
 
-            try {
-                const URL = import.meta.env.VITE_URL_API;
-                const URL_POST = import.meta.env.VITE_API_LOGIN;
-                const URL_Petition = URL + URL_POST;
-                const response = await axios.post(URL_Petition, formDataObject);
-                console.log(response);
 
-                if (response.status === 200) {
-                    sessionStorage.setItem('logged', true);
-                    sessionStorage.setItem('email', formDataObject.email);
-                    location.reload();
-                }
-            }
-            catch (error) {
-                console.log(error);
-                console.log(error.response);
-                switch (error.response.status) {
-                    case 404:
-                        setError('Usuario no encontrado');
-                        break;
-                    case 401:
-                        setError('Contraseña incorrecta');
-                        break;
-                    default:
-                        setError('Error desconocido');
-                        break;
-                }
-            }
-            finally {
-                setLoading(false);
-            }
+  const handleSubmit = async (event) => {
+    const form = event.currentTarget;
+    if (form.checkValidity() === false) {
+      event.preventDefault();
+      event.stopPropagation();
+    } else {
+      event.preventDefault();
+      event.stopPropagation();
+      const formData = new FormData(form);
+      const formDataObject = Object.fromEntries(formData.entries());
+      console.log(formDataObject);
+      setLoading(true);
 
-            event.preventDefault();
-            event.stopPropagation();
+      try {
+        const URL = import.meta.env.VITE_URL_API;
+        const URL_POST = import.meta.env.VITE_API_LOGIN;
+        const URL_Petition = URL + URL_POST;
+        const response = await axios.post(URL_Petition, formDataObject);
+        sessionStorage.setItem('logged', true);
+        sessionStorage.setItem('email', formDataObject.email);
+        location.reload();
+      }
+      catch (error) {
+        console.log(error.response.data);
+        switch (error.response.data.error) {
+          case "auth/invalid-credential":
+            setError('Email o contraseña incorrectos');
+            break;
+          case "auth/too-many-requests":
+            setError('Usuario bloqueado temporalmente, restablezca su contraseña');
+            break;
+          default:
+            setError('Error desconocido, intente más tarde');
+            break;
         }
-        setValidated(true);
-    };
-    return (
+      }
+      finally {
+        setLoading(false);
+      }
+      event.preventDefault();
+      event.stopPropagation();
+    }
+    setValidated(true);
+  };
+  return (
+    <>
+      <div>
+        <h1 className="mb-5">Inicia sesión</h1>
+
         <div>
-            <h1 className="mb-5">Inicia sesión</h1>
+          <Form noValidate validated={validated} onSubmit={handleSubmit}>
+            <FloatingLabel
+              controlId="floatingInput"
+              label="Correo electronico"
+              className="mb-3"
+            >
+              <Form.Control type="email" placeholder="name@example.com" defaultValue='' name='email' required />
+            </FloatingLabel>
 
-            <div>
-                <Form noValidate validated={validated} onSubmit={handleSubmit}>
-                    <FloatingLabel
-                        controlId="floatingInput"
-                        label="Correo electronico"
-                        className="mb-3"
-                    >
-                        <Form.Control type="email" placeholder="name@example.com" defaultValue='' name='email' required />
-                    </FloatingLabel>
+            <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
+              <InputGroup>
+                <FloatingLabel label="Contraseña">
+                  <Form.Control type={inputType} placeholder="Password" name='password' required />
+                </FloatingLabel>
+                <Button
+                  onClick={() => {
+                    setInputType(inputType === 'password' ? 'text' : 'password');
+                  }}
+                  variant="outline-secondary"
+                  id="button-addon2">
+                  {
+                    inputType === 'password' ? <FaEye /> : <FaEyeSlash />
+                  }
+                </Button>
 
-                    <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
-                        <InputGroup>
-                            <FloatingLabel label="Contraseña">
-                                <Form.Control type={inputType} placeholder="Password" name='password' required />
-                            </FloatingLabel>
-                            <Button
-                                onClick={() => {
-                                    setInputType(inputType === 'password' ? 'text' : 'password');
-                                }}
-                                variant="outline-secondary"
-                                id="button-addon2">
-                                {
-                                    inputType === 'password' ? <FaEye /> : <FaEyeSlash />
-                                }
-                            </Button>
+              </InputGroup>
+            </Form.Group>
+            <p className='mb-4' onClick={() => {
+              setModalRecoveryPassword(true);
+            }}>¿Olvidaste tu contraseña?</p>
 
-                        </InputGroup>
-                    </Form.Group>
-                    <p className='mb-0' onClick={() => {
-                        alert('Forgot password');
-                    }}>¿Olvidaste tu contraseña?</p>
+            {error !== '' && (
+              <div className="w-100 p-4">
+                <div className="w-100 p-3 d-flex align-items-center justify-content-center rounded gap-2" style={{ background: "#361d12", border: "1px solid #75452b", color: "#cba754" }}>
+                  <GoAlertFill /> <p className="mb-0">{error}</p>
+                </div>
+              </div>
+            )}
 
-                    {error === '' ?
-                        null
-                        :
-                        <p className='text-danger'>{error}</p>
-                    }
+            <Button className='mt-4 mb-5 d-flex align-items-center gap-2 w-100 justify-content-center' variant="primary" type="submit">
+              <IoLogIn /> Iniciar sesión
+            </Button>
+            <p className='text-center'>¿No tienes cuenta? <b onClick={() => { setType('signUp') }}>Crea tu cuenta</b></p>
 
-                    <Button className='mt-4 mb-5 d-flex align-items-center gap-2 w-100 justify-content-center' variant="primary" type="submit">
-                        <IoLogIn /> Iniciar sesión
-                    </Button>
-                    <p className='text-center'>¿No tienes cuenta? <b onClick={() => {setType('signUp')}}>Crea tu cuenta</b></p>
 
-                    {loading ?
-                        <div className="Loading">
-                            <div className="spinner-border text-primary" role="status">
-                                <span className="visually-hidden">Loading...</span>
-                            </div>
-                        </div>
-                        :
-                        null
-                    }
-                </Form>
-            </div>
+          </Form>
         </div>
-    );
+      </div>
+
+      <ModalRecoveryPassword show={modalRecoverPassword} onHide={() => setModalRecoveryPassword(false)} />
+      
+
+      {loading && (
+        <div className='w-100 h-100 d-flex align-items-center justify-content-center position-fixed fixed-top' style={{ background: "#533e2a70" }}>
+          <Lottie animationData={animationLoading} style={{ width: '30%', height: '30%' }} />
+        </div>
+      )}
+    </>
+
+  );
 }
 
 export default ContentLogin;
