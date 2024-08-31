@@ -5,6 +5,7 @@ import './App.css'
 
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
+import AnimatedCursor from "react-animated-cursor"
 
 function App() {
   const [logged, setLogged] = useState(false);
@@ -35,7 +36,18 @@ function App() {
 
   return (
     <>
-      <div className='App'>
+      <div className='App user-select-none'>
+      
+    <AnimatedCursor
+  color="255, 255, 255"
+  innerSize={7}
+  outerSize={35}
+  innerScale={1}
+  
+  outerScale={1.7}
+  outerAlpha={0.4}
+  
+/>
         {logged ?
           <Home />
           :
