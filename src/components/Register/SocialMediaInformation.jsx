@@ -11,6 +11,8 @@ import axios from 'axios';
 import Lottie from 'lottie-react';
 import animationLoading from '../../assets/animations/loading.json';
 import { useNavigate } from 'react-router-dom';
+
+
 function SocialMediaInformation({ setSection }) {
   const navigate = useNavigate();
   const [facebook, setFacebook] = useState('');
@@ -106,6 +108,14 @@ function SocialMediaInformation({ setSection }) {
       sessionStorage.setItem('logged', true);
       
       setLoading(false);
+      Swal.fire({
+        title: 'Registro exitoso',
+        icon: 'success',
+        timer: 1500,
+        timerProgressBar: true,
+        showConfirmButton: false
+      });
+
       navigate('/');
     } catch (error) {
       console.error(error);

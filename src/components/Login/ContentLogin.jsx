@@ -12,6 +12,9 @@ import animationLoading from "../../assets/animations/loading.json";
 import { GoAlertFill } from "react-icons/go";
 import ModalRecoveryPassword from "./ModalRecoveryPassword";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+
+
 function ContentLogin({ setType }) {
   const navigate = useNavigate();
   const [inputType, setInputType] = useState('password');
@@ -43,19 +46,30 @@ function ContentLogin({ setType }) {
         sessionStorage.setItem('logged', true);
         sessionStorage.setItem('email', formDataObject.email);
         sessionStorage.setItem('uid', response.data.uid);
+        Swal.fire({
+          title: 'Inicio de sesión exitoso',
+          icon: 'success',
+          timer: 1500,
+          timerProgressBar: true,
+          showConfirmButton: false
+        });
         navigate('/');
+        
       }
       catch (error) {
         console.log(error.response.data);
         switch (error.response.data.error) {
           case "auth/invalid-credential":
-            setError('Email o contraseña incorrectos');
+            Swal.fire('Errror', 'Credenciales incorrectas', 'error');
+            /*setError('Email o contraseña incorrectos');*/
             break;
           case "auth/too-many-requests":
-            setError('Usuario bloqueado temporalmente, restablezca su contraseña');
+            Swal|fire('Error', 'Usuario bloqueado temporalmente, restablezca su contraseña', 'error');
+            /*setError('Usuario bloqueado temporalmente, restablezca su contraseña');*/
             break;
           default:
-            setError('Error desconocido, intente más tarde');
+            Swal.fire('Error', 'Error desconocido, intente más tarde', 'error');
+            /*setError('Error desconocido, intente más tarde');*/
             break;
         }
       }

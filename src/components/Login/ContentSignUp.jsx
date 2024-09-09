@@ -11,6 +11,7 @@ import Lottie from "lottie-react";
 import animationLoading from "../../assets/animations/loading.json";
 import { GoAlertFill } from "react-icons/go";
 import { useNavigate } from 'react-router-dom';
+import Swal from "sweetalert2";
 
 function ContentSignUp({ setType }) {
   const navigate = useNavigate();
@@ -82,14 +83,18 @@ function ContentSignUp({ setType }) {
         const uid = response.data.uid;
         sessionStorage.setItem('uid', uid);
         navigate('/register');
+
+
       } catch (error) {
         console.error(error);
         switch (error.response.data.error) {
           case 'auth/email-already-in-use':
-            setError('El correo ya está registrado');
+            Swal.fire('Error', 'El correo ya está registrado', 'error');
+            /*setError('El correo ya está registrado');*/
             break;
           default:
-            setError('Error desconocido, intente más tarde');
+            Swal.fire('Error', 'Error desconocido, intente más tarde', 'error');
+            /*setError('Error desconocido, intente más tarde');*/
             break;
         }
       } finally {
