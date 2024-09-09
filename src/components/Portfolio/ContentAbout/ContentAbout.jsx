@@ -16,6 +16,9 @@ import 'swiper/css';
 
 import ModalResume from "./Modals/ModalResume";
 import ModalHobbies from "./Modals/ModalHobbies";
+import ModalTestimonials from "./Modals/ModalTestimonials";
+import ModalCertifications from "./Modals/ModalCertifications";
+
 function ContentAbout({ isDesktop , visited, dataVisited }) {
   const [data, setData] = useState({});
   const [loading, setLoading] = useState(true);
@@ -23,6 +26,8 @@ function ContentAbout({ isDesktop , visited, dataVisited }) {
 
   const [showModalResume, setShowModalResume] = useState(false);
   const [showModalHobbies, setShowModalHobbies] = useState(false);
+  const [showModalTestimonials, setShowModalTestimonials] = useState(false);
+  const [showModalCertifications, setShowModalCertifications] = useState(false);
 
   useEffect(() => {
     async function getData() {
@@ -31,7 +36,8 @@ function ContentAbout({ isDesktop , visited, dataVisited }) {
 
         const URL = import.meta.env.VITE_URL_API;
         const URL_GET = import.meta.env.VITE_API_ABOUT;
-        const URL_Petition = URL + URL_GET + '/' + sessionStorage.getItem('uid');
+        const UID = visited ? dataVisited : sessionStorage.getItem('uid');
+        const URL_Petition = URL + URL_GET + '/' + UID;
         const response = await axios.get(URL_Petition);
         console.log(response.data);
         setData(response.data);
@@ -76,9 +82,10 @@ function ContentAbout({ isDesktop , visited, dataVisited }) {
 
         <hr className="Background_Yellow" />
         <p>{data.Resume.Text}</p>
+
         <div className="d-flex gap-2 align-items-center">
-          <h4 className="d-flex align-items-center" onClick={() => setShowModalHobbies(true)}><MdModeEdit /></h4>
-          <h1>Pasatiempos </h1>
+        {visited ? null : <h4 className="d-flex align-items-center" onClick={() => setShowModalHobbies(true)}><MdModeEdit /></h4>}
+          <h2>Pasatiempos </h2>
         </div>
         <div className="d-flex flex-wrap justify-content-around gap-3 mb-5">
           {data.Hobbies.Hobbies.map((hobbie, index) => (
@@ -93,61 +100,52 @@ function ContentAbout({ isDesktop , visited, dataVisited }) {
             </div>
           ))}
         </div>
-        <h2>Testimonios</h2>
 
-
-        <div className="w-100 mb-5">
-          <div>
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={
-                isDesktop ? 2 : 1
-              }
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
-            >
-              {data.Testimonials.Testimonials.map((testimonial, index) => (
-                <SwiperSlide key={index}>
-                  <div className="Testimonies d-flex p-3">
-                    <div>
-                      <img className="ImageTestimonies" src={testimonial.Image} alt="" />
-                    </div>
-                    <div className="w-100 d-flex flex-column justify-content-center">
-                      <h5 className="mb-0">{testimonial.Name}</h5>
-                      <p className="mb-0 text-muted">{testimonial.Text}</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+        
+       {/* Testimonials Section */}
+       <div className="d-flex align-items-center mb-4 gap-2">
+       {visited ? null : <h4 className="d-flex align-items-center" onClick={() => setShowModalTestimonials(true)}><MdModeEdit /></h4>}
+          <h2>Testimonios</h2>
         </div>
-
-        <h2>Certificaciones</h2>
-        <div>
-          <div>
-            <Swiper
-              spaceBetween={50}
-              slidesPerView={
-                isDesktop ? 4 : 1
-              }
-              onSlideChange={() => console.log('slide change')}
-              onSwiper={(swiper) => console.log(swiper)}
-            >
-              {data.Certifications.Certifications.map((certification, index) => (
-                <SwiperSlide key={index}>
-                  <div className="Testimonies d-flex gap-3 p-4">
-                    <div className="IconHobbies">
-                      <PiCertificateFill size={40} />
-                    </div>
-                    <div className="w-100 d-flex flex-column justify-content-center">
-                      <h6 className="mb-0">{certification}</h6>
-                    </div>
+        <div className="w-100 mb-5">
+          <Swiper spaceBetween={50} slidesPerView={isDesktop ? 2 : 1}>
+            {data.Testimonials.Testimonials.map((testimonial, index) => (
+              <SwiperSlide key={index}>
+                <div className="Testimonies d-flex p-3">
+                  <div>
+                    <img className="ImageTestimonies" src={testimonial.Image} alt="" />
                   </div>
-                </SwiperSlide>
-              ))}
-            </Swiper>
-          </div>
+                  <div className="w-100 d-flex flex-column justify-content-center">
+                    <h5 className="mb-0">{testimonial.Name}</h5>
+                    <p className="mb-0 text-muted">{testimonial.Text}</p>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+        
+        
+         {/* Certifications Section */}
+         <div className="d-flex align-items-center mb-4 gap-2">
+         {visited ? null : <h4 className="d-flex align-items-center" onClick={() => setShowModalCertifications(true)}><MdModeEdit /></h4>}
+          <h2>Certificaciones</h2>
+        </div>
+        <div>
+          <Swiper spaceBetween={50} slidesPerView={isDesktop ? 4 : 1}>
+            {data.Certifications.Certifications.map((certification, index) => (
+              <SwiperSlide key={index}>
+                <div className="Testimonies d-flex gap-3 p-4">
+                  <div className="IconHobbies">
+                    <PiCertificateFill size={40} />
+                  </div>
+                  <div className="w-100 d-flex flex-column justify-content-center">
+                    <h6 className="mb-0">{certification}</h6>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
         </div>
 
 
@@ -155,6 +153,8 @@ function ContentAbout({ isDesktop , visited, dataVisited }) {
 
       <ModalResume showModalResume={showModalResume} setShowModalResume={setShowModalResume} data={data.Resume.Text}/>
       <ModalHobbies showModal={showModalHobbies} setShowModal={setShowModalHobbies} data={data.Hobbies.Hobbies}/>
+      <ModalTestimonials showModal={showModalTestimonials} setShowModal={setShowModalTestimonials} data={data.Testimonials.Testimonials}/>
+      <ModalCertifications showModal={showModalCertifications} setShowModal={setShowModalCertifications} data={data.Certifications.Certifications}/>
     </>
   )
 }
