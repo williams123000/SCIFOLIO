@@ -1,17 +1,9 @@
-.Home {
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
 .Login {
   background-color: #292929;
-  border-radius: 20px;
+  border-radius: 1.5rem;
 }
 
 .SideBar {
-  width: 19%;
-  height: 100%;
   background-color: #1E1E1E;
   border-radius: 20px;
 }
@@ -21,7 +13,7 @@
 }
 
 .SideBar .TagProfession {
-  background-color: #292929;
+  background-color: hsl(0, 0%, 16%);
   border-radius: 8px;
   font-size: x-small;
 }
@@ -58,8 +50,7 @@
 .ContentPortfolio {
   gap: 20px 0px;
   height: -webkit-fill-available;
-  position: absolute;
-  overflow-y: scroll;
+  overflow-y: auto; /* Permite el desplazamiento vertical si es necesario */
 }
 
 .ItemContentPortfolio {
@@ -184,7 +175,7 @@
 .Map {
   overflow: hidden;
   position: relative;
-  height: 500px;
+  height: 50dvh;
 }
 
 .leaflet-container {
@@ -255,6 +246,17 @@
   --bs-btn-active-color: #1E1E1E !important;
 }
 
+.btn-outline-primary{
+  --bs-btn-color: #D4BA70 !important;
+  --bs-btn-border-color: transparent !important;
+  --bs-btn-hover-color: #D4BA70 !important;
+  --bs-btn-hover-bg: transparent !important;
+  --bs-btn-hover-border-color: #D4BA70 !important;
+  --bs-btn-active-bg: transparent !important;
+  --bs-btn-active-border-color: #D4BA70 !important;
+  --bs-btn-active-color: #D4BA70 !important;
+}
+
 .text-danger {
   --bs-danger-rgb: 255, 0, 0 !important;
 
@@ -267,7 +269,143 @@
 
 .xyz{
   position: fixed;
-top: 50%;
-left: 50%;
+  top: 50%;
+  left: 50%;
+}
 
+
+
+.rs-input{
+  background-color: #292929 !important;
+  color: white !important;
+  height: calc(3.5rem + calc(var(--bs-border-width) * 2));
+}
+
+.rs-input:focus, .rs-input:hover:not(:disabled){
+  border-color: gray !important;
+  box-shadow: 0 0 0 .25rem rgba(189, 198, 211, 0.25) !important;
+}
+
+.rs-input:focus{
+  border-color: gray !important;
+  box-shadow: 0 0 0 .25rem rgba(189, 198, 211, 0.25) !important;
+  outline: 0 !important;
+}
+
+
+.editable-image {
+  position: relative;
+  border-radius: 100%;
+  background: #D4BA70;
+  width: 150px; /* Ajusta el tamaño según sea necesario */
+  height: 150px;
+  overflow: hidden;
+}
+
+.editable-image img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+
+.editable-image .edit-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #292929d5;
+  background-size: cover;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.editable-image:hover .edit-icon {
+  opacity: 1;
+  cursor: pointer;
+}
+
+
+.alert-primary {
+ 
+  color: rgb(203, 167, 84) !important;
+  background-color:  rgb(54, 29, 18) !important ;
+  --bs-alert-border-color:  rgb(117, 69, 43) !important;
+  --bs-primary-border-subtle:  rgb(117, 69, 43)   !important;
+}
+
+/* Para Chrome, Edge y Opera */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+/* Para Firefox */
+input[type="date"] {
+  -moz-appearance: textfield;
+}
+
+/* Para Internet Explorer 11 */
+input[type="date"]::-ms-clear {
+  display: none;
+}
+
+
+.bottom-nav{
+  background-color: #292929 !important;
+  border-top: 0px  !important;
+  border-radius: 10px 10px 0px 0px !important;
+  z-index: 1000 !important;
+  height: 10dvh !important;
+}
+.bottom-nav .bottom-nav-item {
+  border-radius: 10px 10px 0px 0px !important; 
+}
+.bottom-nav .bottom-nav-item.active{
+  border-radius: 10px 10px 0px 0px !important;  
+}
+.Home {
+  height: 100% !important;
+}
+/* Media queries */
+
+@media (max-width: 600px) {
+  body {
+    background-color: #1e1e1e  !important;
+  }
+
+  * {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
+  }
+  
+  *::-webkit-scrollbar {
+    width: 0 !important;
+    height: 0 !important;
+    background: transparent !important;
+    display: none !important;
+  }
+
+  .Home {
+    height: 90dvh !important;
+  }
+
+  .SideBar {
+    border-radius: 0px !important;
+    overflow-y: scroll;
+  }
+
+  .SideBar .TagProfession{
+    font-size:smaller;
+  }
+
+  .SideBar .ImageProfile {
+    width: 60%;
+  }
+
+  .SideBarName{
+    font-size:xx-large;
+  }
+
+  .SideBarInfoText{
+    font-size:larger;
+  }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #292929;
+        font-family: ProductSans-Bold, 'Product Sans';
+        font-size: 700px;
+        font-weight: 700;
+        stroke: #292929;
+        stroke-miterlimit: 10;
+        stroke-width: 4px;
+      }
+
+      .cls-2 {
+        letter-spacing: -.02em;
+      }
+
+      .cls-3 {
+        fill: #d3b96f;
+        stroke-width: 0px;
+      }
+    </style>
+  </defs>
+  <rect class="cls-3" width="1000" height="1000" rx="160" ry="160"/>
+  <text class="cls-1" transform="translate(139.75 745.07) scale(1.09 1)"><tspan class="cls-2" x="0" y="0">S</tspan><tspan x="385" y="0">f</tspan></text>
+</svg>

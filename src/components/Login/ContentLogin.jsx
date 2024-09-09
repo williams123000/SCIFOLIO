@@ -11,17 +11,15 @@ import Lottie from "lottie-react";
 import animationLoading from "../../assets/animations/loading.json";
 import { GoAlertFill } from "react-icons/go";
 import ModalRecoveryPassword from "./ModalRecoveryPassword";
-
+import { useNavigate } from "react-router-dom";
 function ContentLogin({ setType }) {
+  const navigate = useNavigate();
   const [inputType, setInputType] = useState('password');
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
-
   const [modalRecoverPassword, setModalRecoveryPassword] = useState(false);
-
-
 
   const handleSubmit = async (event) => {
     const form = event.currentTarget;
@@ -41,9 +39,11 @@ function ContentLogin({ setType }) {
         const URL_POST = import.meta.env.VITE_API_LOGIN;
         const URL_Petition = URL + URL_POST;
         const response = await axios.post(URL_Petition, formDataObject);
+        console.log(response.data);
         sessionStorage.setItem('logged', true);
         sessionStorage.setItem('email', formDataObject.email);
-        location.reload();
+        sessionStorage.setItem('uid', response.data.uid);
+        navigate('/');
       }
       catch (error) {
         console.log(error.response.data);
@@ -100,7 +100,7 @@ function ContentLogin({ setType }) {
 
               </InputGroup>
             </Form.Group>
-            <p className='mb-4' onClick={() => {
+            <p className='mb-4 text-center text-lg-start' onClick={() => {
               setModalRecoveryPassword(true);
             }}>¿Olvidaste tu contraseña?</p>
 

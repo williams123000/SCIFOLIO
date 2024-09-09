@@ -49,7 +49,7 @@ function ContentContact() {
 
 
   return (
-    <div className='h-100' style={{ position: 'relative', overflowY: 'scroll' }}>
+    <div className='h-100 w-100' style={{ position: 'relative', overflowY: 'scroll' }}>
       <h1>Contacto</h1>
       <hr className="Background_Yellow" />
       <div className='Map w-100 mb-5'>
@@ -64,9 +64,9 @@ function ContentContact() {
         </MapContainer>
       </div>
       <h3>Formulario de contacto</h3>
-      <div className='p-1'>
+      <div className='p-1 w-100'>
         <Form noValidate validated={validated} onSubmit={handleSubmit}>
-          <Row className="mb-3">
+          <Form.Group className="mb-3">
             <FloatingLabel
               controlId="floatingInput"
               label="Nombre completo"
@@ -74,8 +74,8 @@ function ContentContact() {
             >
               <Form.Control type="email" placeholder="name@example.com" />
             </FloatingLabel>
-          </Row>
-          <Row className="mb-3">
+          </Form.Group>
+          <Form.Group className="mb-3">
             <FloatingLabel
               controlId="floatingInput"
               label="Correo electrónico"
@@ -83,10 +83,10 @@ function ContentContact() {
             >
               <Form.Control type="email" placeholder="name@example.com" />
             </FloatingLabel>
-          </Row>
+          </Form.Group>
 
 
-          <Row className="mb-3">
+          <Form.Group className="mb-3">
             <FloatingLabel controlId="floatingTextarea2" label="Comentarios">
               <Form.Control
                 as="textarea"
@@ -95,7 +95,7 @@ function ContentContact() {
               />
             </FloatingLabel>
 
-          </Row>
+          </Form.Group>
           <Button type="submit">Submit form</Button>
         </Form>
       </div>

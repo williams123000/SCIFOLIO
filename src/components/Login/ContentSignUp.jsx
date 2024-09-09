@@ -10,8 +10,10 @@ import { useState, useRef, useEffect } from 'react';
 import Lottie from "lottie-react";
 import animationLoading from "../../assets/animations/loading.json";
 import { GoAlertFill } from "react-icons/go";
+import { useNavigate } from 'react-router-dom';
 
 function ContentSignUp({ setType }) {
+  const navigate = useNavigate();
   const [validated, setValidated] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
@@ -79,7 +81,7 @@ function ContentSignUp({ setType }) {
         console.log(response);
         const uid = response.data.uid;
         sessionStorage.setItem('uid', uid);
-        setType('login'); // NOTE llenar mas formularios
+        navigate('/register');
       } catch (error) {
         console.error(error);
         switch (error.response.data.error) {

@@ -1,62 +1,59 @@
 import { useEffect, useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
-
 import Home from './components/Home/Home'
 import Login from './components/Login/Login'
 import AnimatedCursor from "react-animated-cursor"
-
+import Register from './components/Register/Register'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import PrivateRoute from '../PrivateRoute';
+import { AnimatePresence } from "framer-motion"
 function App() {
-  const [logged, setLogged] = useState(false);
-  const [loading, setLoading] = useState(true);
+  const [isDesktop, setIsDesktop] = useState(false);
+
 
   useEffect(() => {
-    const logged = sessionStorage.getItem('logged')
-    if (!logged) {
-      console.log('No hay sesión iniciada');
-      setLogged(false);
-    }
+    const updateMedia = () => {
+      setIsDesktop(window.innerWidth >= 1024); // Define el ancho para considerar "escritorio"
+    };
 
-    if (logged) {
-      console.log('Sesión iniciada');
-      setLogged(true);
-    }
+    updateMedia(); // Comprobar el tamaño de la ventana al cargar
 
-    setLoading(false);
-  }, [])
+    window.addEventListener('resize', updateMedia); // Añadir listener para el redimensionamiento
 
-  if (loading) {
-    return (
-      <div className='App'>
-        <h1>Cargando...</h1>
-      </div>
-    )
-  }
+    return () => window.removeEventListener('resize', updateMedia); // Eliminar el listener al desmontar
+  }, []);
+
+
 
   return (
     <>
-      <div className='App user-select-none'>
-        <AnimatedCursor
-          color="255, 255, 255"
-          innerSize={7}
-          outerSize={35}
-          innerScale={1}
-          innerStyle={{ zIndex: 9999 }}
+      <Router>
+        <div className='App user-select-none'>
+          {isDesktop && (
+            <AnimatedCursor
+              color="255, 255, 255"
+              innerSize={7}
+              outerSize={35}
+              innerScale={1}
+              innerStyle={{ zIndex: 9999 }}
+              outerScale={1.7}
+              outerAlpha={0.4}
+              outerStyle={{ zIndex: 9999 }}
+            />
+          )}
+          <Routes>
 
-          outerScale={1.7}
-          outerAlpha={0.4}
-          outerStyle={{ zIndex: 9999 }}
+            <Route path="/" element={<PrivateRoute element={<Home isDesktop={isDesktop}/>} />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<Register />} />
+            <Route path="/:id" element={<Home isDesktop={isDesktop}/>}/>
 
-        />
-        {logged ?
-          <Home />
-          :
-          <Login />
-        }
-      </div>
+
+          </Routes>
+        </div>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -12,7 +12,7 @@ function ContentResume() {
       try {
         const URL = import.meta.env.VITE_URL_API;
         const URL_GET = import.meta.env.VITE_API_RESUME;
-        const URL_Petition = URL + URL_GET + '/' + 'richar@email.com';
+        const URL_Petition = URL + URL_GET + '/' + sessionStorage.getItem('uid');
         const response = await axios.get( URL_Petition);
         console.log(response.data);
         setData(response.data);

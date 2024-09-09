@@ -1,0 +1,90 @@
+Date : 2024-09-08 03:07:51
+Directory : c:\Users\Williams\Desktop\SciFolio
+Total : 37 files,  23229 codes, 22 comments, 485 blanks, all 23736 lines
+
+Languages
++----------------+------------+------------+------------+------------+------------+
+| language       | files      | code       | comment    | blank      | total      |
++----------------+------------+------------+------------+------------+------------+
+| JSON           |          3 |     20,035 |          0 |          2 |     20,037 |
+| JavaScript JSX |         25 |      2,645 |         16 |        343 |      3,004 |
+| CSS            |          3 |        443 |          5 |        122 |        570 |
+| JavaScript     |          2 |         45 |          1 |          4 |         50 |
+| HTML           |          1 |         30 |          0 |          8 |         38 |
+| XML            |          2 |         26 |          0 |          2 |         28 |
+| Markdown       |          1 |          5 |          0 |          4 |          9 |
++----------------+------------+------------+------------+------------+------------+
+
+Directories
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                                | files      | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                                   |         37 |     23,229 |         22 |        485 |     23,736 |
+| . (Files)                                                                                           |          7 |     20,121 |          1 |         21 |     20,143 |
+| public                                                                                              |          1 |         25 |          0 |          2 |         27 |
+| src                                                                                                 |         29 |      3,083 |         21 |        462 |      3,566 |
+| src (Files)                                                                                         |          4 |        449 |          6 |        132 |        587 |
+| src\assets                                                                                          |          2 |          2 |          0 |          0 |          2 |
+| src\assets (Files)                                                                                  |          1 |          1 |          0 |          0 |          1 |
+| src\assets\animations                                                                               |          1 |          1 |          0 |          0 |          1 |
+| src\components                                                                                      |         22 |      2,612 |         15 |        324 |      2,951 |
+| src\components\Home                                                                                 |          1 |        124 |          1 |         16 |        141 |
+| src\components\Login                                                                                |          4 |        444 |          4 |         72 |        520 |
+| src\components\Portfolio                                                                            |         12 |      1,434 |         10 |        163 |      1,607 |
+| src\components\Portfolio (Files)                                                                    |          1 |         61 |          0 |          9 |         70 |
+| src\components\Portfolio\ContentAbout                                                               |          4 |        577 |          9 |         70 |        656 |
+| src\components\Portfolio\ContentAbout (Files)                                                       |          2 |        385 |          9 |         49 |        443 |
+| src\components\Portfolio\ContentAbout\Modals                                                        |          2 |        192 |          0 |         21 |        213 |
+| src\components\Portfolio\ContentBlog                                                                |          1 |         63 |          0 |          3 |         66 |
+| src\components\Portfolio\ContentContact                                                             |          2 |        121 |          0 |         21 |        142 |
+| src\components\Portfolio\ContentPortfolio                                                           |          2 |        283 |          1 |         21 |        305 |
+| src\components\Portfolio\ContentResume                                                              |          2 |        329 |          0 |         39 |        368 |
+| src\components\Register                                                                             |          4 |        493 |          0 |         64 |        557 |
+| src\components\Sidebar                                                                              |          1 |        117 |          0 |          9 |        126 |
+| src\settings                                                                                        |          1 |         20 |          0 |          6 |         26 |
+| src\settings\utilities                                                                              |          1 |         20 |          0 |          6 |         26 |
++-----------------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-----------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| filename                                                                                            | language       | code       | comment    | blank      | total      |
++-----------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+
+| c:\Users\Williams\Desktop\SciFolio\PrivateRoute.jsx                                                 | JavaScript JSX |          7 |          0 |          3 |         10 |
+| c:\Users\Williams\Desktop\SciFolio\README.md                                                        | Markdown       |          5 |          0 |          4 |          9 |
+| c:\Users\Williams\Desktop\SciFolio\eslint.config.js                                                 | JavaScript     |         37 |          0 |          2 |         39 |
+| c:\Users\Williams\Desktop\SciFolio\index.html                                                       | HTML           |         30 |          0 |          8 |         38 |
+| c:\Users\Williams\Desktop\SciFolio\package-lock.json                                                | JSON           |     19,986 |          0 |          1 |     19,987 |
+| c:\Users\Williams\Desktop\SciFolio\package.json                                                     | JSON           |         48 |          0 |          1 |         49 |
+| c:\Users\Williams\Desktop\SciFolio\public\Logo.svg                                                  | XML            |         25 |          0 |          2 |         27 |
+| c:\Users\Williams\Desktop\SciFolio\src\App.css                                                      | CSS            |        313 |          4 |         94 |        411 |
+| c:\Users\Williams\Desktop\SciFolio\src\App.jsx                                                      | JavaScript JSX |         47 |          0 |         12 |         59 |
+| c:\Users\Williams\Desktop\SciFolio\src\assets\animations\loading.json                               | JSON           |          1 |          0 |          0 |          1 |
+| c:\Users\Williams\Desktop\SciFolio\src\assets\react.svg                                             | XML            |          1 |          0 |          0 |          1 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Home\Home.jsx                                     | JavaScript JSX |        124 |          1 |         16 |        141 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Login\ContentLogin.jsx                            | JavaScript JSX |        123 |          0 |         15 |        138 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Login\ContentSignUp.jsx                           | JavaScript JSX |        148 |          0 |         27 |        175 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Login\Login.jsx                                   | JavaScript JSX |         67 |          0 |          8 |         75 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Login\ModalRecoveryPassword.jsx                   | JavaScript JSX |        106 |          4 |         22 |        132 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentAbout\ContentAbout.jsx           | JavaScript JSX |        141 |          2 |         19 |        162 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentAbout\ModalEditAbout.jsx         | JavaScript JSX |        244 |          7 |         30 |        281 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentAbout\Modals\ModalHobbies.jsx    | JavaScript JSX |        140 |          0 |         15 |        155 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentAbout\Modals\ModalResume.jsx     | JavaScript JSX |         52 |          0 |          6 |         58 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentBlog\ContentBlog.jsx             | JavaScript JSX |         63 |          0 |          3 |         66 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentContact\ContentContact.jsx       | JavaScript JSX |         93 |          0 |         13 |        106 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentContact\ModalEditContact.jsx     | JavaScript JSX |         28 |          0 |          8 |         36 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentPortfolio\ContentPortfolio.jsx   | JavaScript JSX |        237 |          1 |         15 |        253 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentPortfolio\ModalEditPortfolio.jsx | JavaScript JSX |         46 |          0 |          6 |         52 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentResume\ContentResume.jsx         | JavaScript JSX |         67 |          0 |          8 |         75 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\ContentResume\ModalEditResume.jsx       | JavaScript JSX |        262 |          0 |         31 |        293 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Portfolio\Portfolio.jsx                           | JavaScript JSX |         61 |          0 |          9 |         70 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Register\App.module.css                           | CSS            |         48 |          0 |          5 |         53 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Register\ProfileInformation.jsx                   | JavaScript JSX |        153 |          0 |         19 |        172 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Register\Register.jsx                             | JavaScript JSX |        126 |          0 |         18 |        144 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Register\SocialMediaInformation.jsx               | JavaScript JSX |        166 |          0 |         22 |        188 |
+| c:\Users\Williams\Desktop\SciFolio\src\components\Sidebar\Sidebar.jsx                               | JavaScript JSX |        117 |          0 |          9 |        126 |
+| c:\Users\Williams\Desktop\SciFolio\src\index.css                                                    | CSS            |         82 |          1 |         23 |        106 |
+| c:\Users\Williams\Desktop\SciFolio\src\main.jsx                                                     | JavaScript JSX |          7 |          1 |          3 |         11 |
+| c:\Users\Williams\Desktop\SciFolio\src\settings\utilities\CacheLocalStorage.jsx                     | JavaScript JSX |         20 |          0 |          6 |         26 |
+| c:\Users\Williams\Desktop\SciFolio\vite.config.js                                                   | JavaScript     |          8 |          1 |          2 |         11 |
+| Total                                                                                               |                |     23,229 |         22 |        485 |     23,736 |
++-----------------------------------------------------------------------------------------------------+----------------+------------+------------+------------+------------+

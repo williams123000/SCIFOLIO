@@ -4,7 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -12,6 +12,7 @@
   "dependencies": {
     "@fontsource-variable/archivo": "^5.0.20",
     "@fontsource/open-sauce-sans": "^5.0.11",
+    "@radix-ui/react-dialog": "^1.1.1",
     "alert": "^6.0.2",
     "axios": "^1.7.4",
     "bootstrap": "^5.3.3",
@@ -20,11 +21,17 @@
     "react": "^18.3.1",
     "react-animated-cursor": "^2.11.2",
     "react-bootstrap": "^2.10.4",
+    "react-date-range": "^2.0.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.3.0",
     "react-international-phone": "^4.3.0",
     "react-leaflet": "^4.2.1",
-    "swiper": "^11.1.9"
+    "react-router-dom": "^6.26.1",
+    "reactjs-bottom-navigation": "^2.0.9",
+    "rsuite": "^5.70.0",
+    "sweetalert2": "^11.13.2",
+    "swiper": "^11.1.9",
+    "vaul": "^0.9.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.8.0",
