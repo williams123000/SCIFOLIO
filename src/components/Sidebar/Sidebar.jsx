@@ -1,3 +1,4 @@
+
 import { useEffect, useState } from 'react';
 import Badge from 'react-bootstrap/Badge';
 import { MdOutlineEmail } from "react-icons/md";
@@ -43,7 +44,7 @@ function Sidebar({visited, dataVisited}) {
         return <FaInstagram size={20} />;
       case 'twitter':
         return <FaTwitter size={20} />;
-      case 'linkedIn':
+      case 'linkedin':
         return <FaLinkedin size={20} />;
       case 'url':
         return <FaLinkedin size={20} />;
