@@ -74,9 +74,12 @@ Para iniciar la aplicación en modo de desarrollo, ejecuta:
 ```bash
 npm run dev
 ```
-
 Esto abrirá la aplicación en el navegador, y los cambios que hagas en el código se actualizarán automáticamente.
 
+## 📸 Capturas de Pantalla
+<p align="center">
+  <img src="https://github.com/williams123000/SCIFOLIO/tree/main/src/assets/images">
+</p>
 ## 📈 Roadmap
 Próximas características:
 - **Temas personalizados:** Permitirá a los usuarios personalizar la apariencia de su portafolio.
@@ -84,6 +87,9 @@ Próximas características:
 
 ## 🤝 Contribuciones
 ¡Contribuciones, ideas y mejoras son bienvenidas!
+- **Correo Electrónico Personal:** [williamschan72@gmail.com](mailto:williamschan72@gmail.com)
+- **Correo Electrónico Institucional:** [williams.chan@cua.uam.mx](mailto:williams.chan@cua.uam.mx)
 
 ## 📄 Licencia
 Este proyecto está bajo la [licencia MIT](./LICENSE).
+
