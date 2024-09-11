@@ -68,8 +68,8 @@ Esto abrirá la aplicación en el navegador, y los cambios que hagas en el códi
 
 ## 📈 Roadmap
 Próximas características:
-- **Temas personalizados: Permitirá a los usuarios personalizar la apariencia de su portafolio.
-- **Soporte multilingüe: La plataforma se podrá utilizar en varios idiomas.
+- **Temas personalizados:** Permitirá a los usuarios personalizar la apariencia de su portafolio.
+- **Soporte multilingüe:** La plataforma se podrá utilizar en varios idiomas.
 
 ## 🤝 Contribuciones
 ¡Contribuciones, ideas y mejoras son bienvenidas!
