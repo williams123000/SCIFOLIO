@@ -78,7 +78,10 @@ Esto abrirá la aplicación en el navegador, y los cambios que hagas en el códi
 
 ## 📸 Capturas de Pantalla
 <p align="center">
-  <img src="https://github.com/williams123000/SCIFOLIO/tree/main/src/assets/images">
+  <img src="https://github.com/williams123000/SCIFOLIO/blob/main/src/assets/images/editPerfil.png">
+</p>
+<p align="center">
+  <img src="https://github.com/williams123000/SCIFOLIO/blob/main/src/assets/images/principal.png">
 </p>
 
 ## 📈 Roadmap
