@@ -36,6 +36,7 @@ cd SCIFOLIO
 
 ### Instalar dependencias
 npm install
+```
 
 ## 🌐 Configuración del Entorno
 Para que la aplicación funcione correctamente, necesitas un archivo .env en la raíz del proyecto con la siguiente información (donde iran todas las rutas):
