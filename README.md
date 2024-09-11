@@ -40,6 +40,7 @@ npm install
 
 ## 🌐 Configuración del Entorno
 Para que la aplicación funcione correctamente, necesitas un archivo .env en la raíz del proyecto con la siguiente información (donde iran todas las rutas):
+```bash
 # URL base de la API
 - VITE_URL_API=http://your-api-url-here
 
@@ -66,7 +67,7 @@ VITE_API_UPLOADINFORESUME=/your-upload-info-resume-endpoint
 - VITE_API_DELETECERTIFICATION=/your-delete-certification-endpoint
 - VITE_API_DELETEEXPERIENCE=/your-delete-experience-endpoint
 - VITE_API_DELETESKILL=/your-delete-skill-endpoint
-
+```
 
 ## 🖥️ Uso
 Para iniciar la aplicación en modo de desarrollo, ejecuta:
