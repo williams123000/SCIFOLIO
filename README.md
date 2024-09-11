@@ -80,6 +80,7 @@ Esto abrirá la aplicación en el navegador, y los cambios que hagas en el códi
 <p align="center">
   <img src="https://github.com/williams123000/SCIFOLIO/tree/main/src/assets/images">
 </p>
+
 ## 📈 Roadmap
 Próximas características:
 - **Temas personalizados:** Permitirá a los usuarios personalizar la apariencia de su portafolio.
