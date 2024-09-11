@@ -59,7 +59,7 @@ Para que la aplicación funcione correctamente, necesitas un archivo .env en la 
 # Endpoints para subir información
 - VITE_API_UPLOADINFOPERSONAL=/your-upload-info-personal-endpoint
 - VITE_API_UPLOADINFOABOUT=/your-upload-info-about-endpoint
-VITE_API_UPLOADINFORESUME=/your-upload-info-resume-endpoint
+- VITE_API_UPLOADINFORESUME=/your-upload-info-resume-endpoint
 
 # Endpoints para eliminar información
 - VITE_API_DELETEEDUCATION=/your-delete-education-endpoint
