@@ -40,29 +40,39 @@ npm install
 
 ## 🌐 Configuración del Entorno
 Para que la aplicación funcione correctamente, necesitas un archivo .env en la raíz del proyecto con la siguiente información (donde iran todas las rutas):
-VITE_URL_API=http://192.168.1.194:4000
-VITE_API_INFOUSER=/InfoUser
-VITE_API_ABOUT=/About
-VITE_API_RESUME=/Resume
-VITE_API_PORTFOLIO=/Portfolio
-VITE_API_CONTACT=/Contact
-VITE_API_LOGIN=/Login
-VITE_API_RECOVERYPASSWORD=/resetPassword
-VITE_API_REGISTER=/register
-VITE_API_IMAGESPROFILE=/imagesProfile
-VITE_API_UPLOADINFOPERSONAL=/uploadInfoPersonal
-VITE_API_UPLOADINFOABOUT=/uploadAbout
-VITE_API_UPLOADINFORESUME=/uploadResume
-VITE_API_DELETEEDUCATION=/deleteEducation
-VITE_API_DELETEHOBBIE=/deleteHobbie
-VITE_API_DELETETESTIMONIAL=/deleteTestimonial
-VITE_API_DELETECERTIFICATION=/deleteCertification
-VITE_API_DELETEEXPERIENCE=/deleteExperience
-VITE_API_DELETESKILL=/deleteSkill
+# URL base de la API
+- VITE_URL_API=http://your-api-url-here
+
+# Endpoints para las diferentes funcionalidades
+- VITE_API_INFOUSER=/your-info-user-endpoint
+- VITE_API_ABOUT=/your-about-endpoint
+- VITE_API_RESUME=/your-resume-endpoint
+- VITE_API_PORTFOLIO=/your-portfolio-endpoint
+- VITE_API_CONTACT=/your-contact-endpoint
+- VITE_API_LOGIN=/your-login-endpoint
+- VITE_API_RECOVERYPASSWORD=/your-password-recovery-endpoint
+- VITE_API_REGISTER=/your-register-endpoint
+- VITE_API_IMAGESPROFILE=/your-images-profile-endpoint
+
+# Endpoints para subir información
+- VITE_API_UPLOADINFOPERSONAL=/your-upload-info-personal-endpoint
+- VITE_API_UPLOADINFOABOUT=/your-upload-info-about-endpoint
+VITE_API_UPLOADINFORESUME=/your-upload-info-resume-endpoint
+
+# Endpoints para eliminar información
+- VITE_API_DELETEEDUCATION=/your-delete-education-endpoint
+- VITE_API_DELETEHOBBIE=/your-delete-hobbie-endpoint
+- VITE_API_DELETETESTIMONIAL=/your-delete-testimonial-endpoint
+- VITE_API_DELETECERTIFICATION=/your-delete-certification-endpoint
+- VITE_API_DELETEEXPERIENCE=/your-delete-experience-endpoint
+- VITE_API_DELETESKILL=/your-delete-skill-endpoint
+
 
 ## 🖥️ Uso
 Para iniciar la aplicación en modo de desarrollo, ejecuta:
+```bash
 npm run dev
+```
 
 Esto abrirá la aplicación en el navegador, y los cambios que hagas en el código se actualizarán automáticamente.
 
