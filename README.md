@@ -78,7 +78,7 @@ Esto abrirá la aplicación en el navegador, y los cambios que hagas en el códi
 
 ## 📸 Capturas de Pantalla
 <p align="center">
-  <img src="https://github.com/williams123000/App-AntRoute-Frontend/blob/main/src/assets/Img/react-js-intro.jpg" width="400" height="auto">
+  <img src="https://github.com/williams123000/SCIFOLIO/blob/main/src/assets/images/editPerfil.png" width="400" height="auto">
 </p>
 
 <p align="center">
