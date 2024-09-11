@@ -21,6 +21,7 @@
 - **Bootstrap**: Estilos modernos y diseño responsivo para una experiencia consistente en diferentes dispositivos.
 - **Axios**: Manejo de peticiones HTTP para la comunicación con APIs.
 - **Firebase**: Autenticación y almacenamiento de datos en tiempo real.
+- **Entre otras**
 
 ## ⚙️ Requisitos Previos
 
