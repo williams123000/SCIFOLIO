@@ -77,7 +77,7 @@ function Sidebar({visited, dataVisited}) {
             </div>
             <div className='SideBarInfoText'>
               <p className='m-0 text-muted'>CORREO</p>
-              <p className='m-0'>{data.Email}</p>
+              <p className='m-0' id='emailProfile'>{data.Email}</p>
             </div>
           </div>
           <div className='w-100 d-flex align-items-center gap-3 mb-3'>

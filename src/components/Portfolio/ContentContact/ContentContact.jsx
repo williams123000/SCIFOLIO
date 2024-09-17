@@ -8,6 +8,7 @@ import InputGroup from 'react-bootstrap/InputGroup';
 import Row from 'react-bootstrap/Row';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import axios from 'axios';
+import Swal from 'sweetalert2';
 
 function ContentContact() {
   const [data, setData] = useState({});
@@ -37,11 +38,57 @@ function ContentContact() {
     return <h1>Cargando...</h1>
   }
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
       event.preventDefault();
       event.stopPropagation();
+    } else {
+      event.preventDefault();
+      event.stopPropagation();
+      var formData = new FormData(form);
+      const data = Object.fromEntries(formData.entries());
+      console.log(data);
+      const URL = import.meta.env.VITE_URL_API;
+      const URL_POST = import.meta.env.VITE_API_FORMCONTACT;
+      const URL_Petition = URL + URL_POST;
+      var emailClient = document.getElementById('emailProfile');
+      var emailValue = emailClient.textContent;
+      
+      var msg = `
+Hola,
+
+${data.name} está interesado en conectar contigo.
+
+Información de contacto:
+Correo: ${data.email}
+
+Mensaje:
+"${data.message}"
+
+Esperamos que puedan ponerse en contacto pronto.
+
+Saludos,
+SciFolio
+`;
+      const subjet = 'Contacto desde SciFolio';
+      try {
+        const response = await axios.post(URL_Petition, {
+          uid : sessionStorage.getItem('uid'),
+          emailTo: emailValue,
+          message: msg,
+          subjet: subjet
+       });
+        Swal.fire({
+          icon: 'success',
+          title: 'Mensaje enviado',
+          text: 'Tu mensaje ha sido enviado correctamente'
+        });
+      } catch (error) {
+        console.log(error);
+      }
+
+      
     }
 
     setValidated(true);
@@ -72,7 +119,7 @@ function ContentContact() {
               label="Nombre completo"
               className="mb-3"
             >
-              <Form.Control type="email" placeholder="name@example.com" />
+              <Form.Control type="text" name='name' placeholder="name@example.com" />
             </FloatingLabel>
           </Form.Group>
           <Form.Group className="mb-3">
@@ -81,7 +128,7 @@ function ContentContact() {
               label="Correo electrónico"
               className="mb-3"
             >
-              <Form.Control type="email" placeholder="name@example.com" />
+              <Form.Control type="email" name='email'  placeholder="name@example.com" />
             </FloatingLabel>
           </Form.Group>
 
@@ -92,6 +139,7 @@ function ContentContact() {
                 as="textarea"
                 placeholder="Comentarios"
                 style={{ height: '100px' }}
+                name='message'
               />
             </FloatingLabel>
 

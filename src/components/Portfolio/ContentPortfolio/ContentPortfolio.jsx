@@ -1,6 +1,9 @@
 import Button from 'react-bootstrap/Button';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import { MdModeEdit } from "react-icons/md";
+
+import ModalWorks from './Modals/ModalWorks';
 
 const DataTest = [
     {
@@ -160,12 +163,15 @@ function ContentPortfolio() {
     const [category, setCategory] = useState('All');
     const [loading, setLoading] = useState(true);
     const [margin, setMargin] = useState();
+
+    const [showModalWorks, setShowModalWorks] = useState(false);
+
     useEffect(() => {
         async function getData() {
             try {
                 const URL = import.meta.env.VITE_URL_API;
                 const URL_GET = import.meta.env.VITE_API_PORTFOLIO;
-                const URL_Petition = URL + URL_GET + '/' + 'richar@email.com';
+                const URL_Petition = URL + URL_GET + '/' + sessionStorage.getItem('uid');
                 const response = await axios.get(URL_Petition);
                 console.log(response.data);
                 setItems(response.data.Works.Works);
@@ -199,12 +205,12 @@ function ContentPortfolio() {
 
     const getCategory = (category) => {
         switch (category) {
-            case 'Investigation':
-                return 'Investigación';
-            case 'Publications':
-                return 'Publicaciones';
-            case 'Experiments':
-                return 'Experimentos';
+            case 'Investigacion':
+                return 'Investigacion';
+            case 'Publicacion':
+                return 'Publicacion';
+            case 'Experimento':
+                return 'Experimento';
             default:
                 return 'Desconocido';
         }
@@ -215,15 +221,17 @@ function ContentPortfolio() {
     }
 
     return (
+        <>
         <div className='h-100 d-flex flex-column' style={{ position: 'relative' }}>
+            <h4 className="d-flex align-items-center" onClick={() => setShowModalWorks(true)}><MdModeEdit /></h4>
             <h1>Portafolio</h1>
             <hr className="Background_Yellow" />
 
             <div className='mb-3'>
                 <Button variant="dark" onClick={() => changeCategory("All")} style={{ color: category === "All" ? "#D4BA70" : "#ECECEC" }}>Todo</Button>
-                <Button variant="dark" onClick={() => changeCategory("Investigation")} style={{ color: category === "Investigation" ? "#D4BA70" : "#ECECEC" }}>Investigaciones</Button>
-                <Button variant="dark" onClick={() => changeCategory("Publications")} style={{ color: category === "Publications" ? "#D4BA70" : "#ECECEC" }}>Publicaciones</Button>
-                <Button variant="dark" onClick={() => changeCategory("Experiments")} style={{ color: category === "Experiments" ? "#D4BA70" : "#ECECEC" }}>Experimentos</Button>
+                <Button variant="dark" onClick={() => changeCategory("Investigacion")} style={{ color: category === "Investigacion" ? "#D4BA70" : "#ECECEC" }}>Investigaciones</Button>
+                <Button variant="dark" onClick={() => changeCategory("Publicacion")} style={{ color: category === "Publicacion" ? "#D4BA70" : "#ECECEC" }}>Publicaciones</Button>
+                <Button variant="dark" onClick={() => changeCategory("Experimento")} style={{ color: category === "Experimento" ? "#D4BA70" : "#ECECEC" }}>Experimentos</Button>
             </div>
 
 
@@ -247,6 +255,8 @@ function ContentPortfolio() {
 
 
         </div>
+        <ModalWorks showModalWorks={showModalWorks} setShowModalWorks={setShowModalWorks} data={filteredItems} /> 
+        </>
     )
 }
 
