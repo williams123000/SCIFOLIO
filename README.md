@@ -43,31 +43,31 @@ npm install
 Para que la aplicación funcione correctamente, necesitas un archivo .env en la raíz del proyecto con la siguiente información (donde iran todas las rutas):
 ```bash
 # URL base de la API
-- VITE_URL_API=http://your-api-url-here
+VITE_URL_API=http://your-api-url-here
 
 # Endpoints para las diferentes funcionalidades
-- VITE_API_INFOUSER=/your-info-user-endpoint
-- VITE_API_ABOUT=/your-about-endpoint
-- VITE_API_RESUME=/your-resume-endpoint
-- VITE_API_PORTFOLIO=/your-portfolio-endpoint
-- VITE_API_CONTACT=/your-contact-endpoint
-- VITE_API_LOGIN=/your-login-endpoint
-- VITE_API_RECOVERYPASSWORD=/your-password-recovery-endpoint
-- VITE_API_REGISTER=/your-register-endpoint
-- VITE_API_IMAGESPROFILE=/your-images-profile-endpoint
+VITE_API_INFOUSER=/your-info-user-endpoint
+VITE_API_ABOUT=/your-about-endpoint
+VITE_API_RESUME=/your-resume-endpoint
+VITE_API_PORTFOLIO=/your-portfolio-endpoint
+VITE_API_CONTACT=/your-contact-endpoint
+VITE_API_LOGIN=/your-login-endpoint
+VITE_API_RECOVERYPASSWORD=/your-password-recovery-endpoint
+VITE_API_REGISTER=/your-register-endpoint
+VITE_API_IMAGESPROFILE=/your-images-profile-endpoint
 
 # Endpoints para subir información
-- VITE_API_UPLOADINFOPERSONAL=/your-upload-info-personal-endpoint
-- VITE_API_UPLOADINFOABOUT=/your-upload-info-about-endpoint
-- VITE_API_UPLOADINFORESUME=/your-upload-info-resume-endpoint
+VITE_API_UPLOADINFOPERSONAL=/your-upload-info-personal-endpoint
+VITE_API_UPLOADINFOABOUT=/your-upload-info-about-endpoint
+VITE_API_UPLOADINFORESUME=/your-upload-info-resume-endpoint
 
 # Endpoints para eliminar información
-- VITE_API_DELETEEDUCATION=/your-delete-education-endpoint
-- VITE_API_DELETEHOBBIE=/your-delete-hobbie-endpoint
-- VITE_API_DELETETESTIMONIAL=/your-delete-testimonial-endpoint
-- VITE_API_DELETECERTIFICATION=/your-delete-certification-endpoint
-- VITE_API_DELETEEXPERIENCE=/your-delete-experience-endpoint
-- VITE_API_DELETESKILL=/your-delete-skill-endpoint
+VITE_API_DELETEEDUCATION=/your-delete-education-endpoint
+VITE_API_DELETEHOBBIE=/your-delete-hobbie-endpoint
+VITE_API_DELETETESTIMONIAL=/your-delete-testimonial-endpoint
+VITE_API_DELETECERTIFICATION=/your-delete-certification-endpoint
+VITE_API_DELETEEXPERIENCE=/your-delete-experience-endpoint
+VITE_API_DELETESKILL=/your-delete-skill-endpoint
 ```
 
 ## 🖥️ Uso
