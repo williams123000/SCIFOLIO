@@ -5,8 +5,11 @@ import Form from 'react-bootstrap/Form';
 import axios from 'axios';
 import { useState, useRef } from 'react';
 import { MdDelete } from 'react-icons/md';
+import { nav } from 'framer-motion/client';
+import { useNavigate } from 'react-router-dom';
 
 function ModalWorks({ showModalWorks, setShowModalWorks, data }) {
+    const navigate = useNavigate();
     const [works, setWorks] = useState(data);
     const [showModalAdd, setShowModalAdd] = useState(false);
 
@@ -25,6 +28,7 @@ function ModalWorks({ showModalWorks, setShowModalWorks, data }) {
                 }
             });
             setWorks(works.filter(work => work.NameProject !== id)); // Actualiza la lista
+            navigate(0);
         } catch (error) {
             console.log(error);
         }
@@ -51,6 +55,7 @@ function ModalWorks({ showModalWorks, setShowModalWorks, data }) {
 
             setWorks([...works, { NameProject: name, Category: category }]);
             setShowModalAdd(false);
+            navigate(0)
         } catch (error) {
             console.log(error);
         }

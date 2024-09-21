@@ -158,7 +158,7 @@ const DataTest = [
     }
 ]
 
-function ContentPortfolio() {
+function ContentPortfolio({isDesktop, visited, dataVisited}) {
     const [items, setItems] = useState({});
     const [category, setCategory] = useState('All');
     const [loading, setLoading] = useState(true);
@@ -171,7 +171,8 @@ function ContentPortfolio() {
             try {
                 const URL = import.meta.env.VITE_URL_API;
                 const URL_GET = import.meta.env.VITE_API_PORTFOLIO;
-                const URL_Petition = URL + URL_GET + '/' + sessionStorage.getItem('uid');
+                const UID = visited ? dataVisited : sessionStorage.getItem('uid');
+                const URL_Petition = URL + URL_GET + '/' + UID;
                 const response = await axios.get(URL_Petition);
                 console.log(response.data);
                 setItems(response.data.Works.Works);
@@ -223,8 +224,11 @@ function ContentPortfolio() {
     return (
         <>
         <div className='h-100 d-flex flex-column' style={{ position: 'relative' }}>
-            <h4 className="d-flex align-items-center" onClick={() => setShowModalWorks(true)}><MdModeEdit /></h4>
-            <h1>Portafolio</h1>
+            <div className="d-flex gap-2 align-items-center">
+            {visited ? null : <h4 className="d-flex align-items-center" onClick={() => setShowModalWorks(true)}><MdModeEdit /></h4>}
+                <h1>Portafolio</h1>
+                
+            </div>
             <hr className="Background_Yellow" />
 
             <div className='mb-3'>

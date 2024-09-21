@@ -6,10 +6,7 @@ import ContentResume from './ContentResume/ContentResume';
 import ContentContact from './ContentContact/ContentContact';
 import ContentBlog from './ContentBlog/ContentBlog';
 import { MdEdit } from "react-icons/md";
-import ModalEditAbout from './ContentAbout/ModalEditAbout';
-import ModalEditResume from './ContentResume/ModalEditResume';
-import ModalEditPortfolio from './ContentPortfolio/ModalEditPortfolio';
-import ModalEditContact from './ContentContact/ModalEditContact';
+
 function Portfolio({ step, changeStep,isDesktop , visited, dataVisited }) {
 
   const [modalEditAbout, setModalEditAbout] = useState(false);
@@ -25,11 +22,11 @@ function Portfolio({ step, changeStep,isDesktop , visited, dataVisited }) {
       case 'Resume':
         return <ContentResume isDesktop={isDesktop} visited={visited} dataVisited={dataVisited}/>;
       case 'Portfolio':
-        return <ContentPortfolio />;
+        return <ContentPortfolio isDesktop={isDesktop} visited={visited} dataVisited={dataVisited}/>;
       case 'Blog':
         return <ContentBlog />;
       case 'Contact':
-        return <ContentContact />;
+        return <ContentContact isDesktop={isDesktop} visited={visited} dataVisited={dataVisited}/>;
       default:
         return <div>Bienvenido a mi portafolio. Selecciona una opción del menú.</div>;
     }
